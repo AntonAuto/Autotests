@@ -9,6 +9,6 @@ public class MainClass
 
     public String getClassString()
     {
-        return class_string;
+      return class_string;
     }
 }
