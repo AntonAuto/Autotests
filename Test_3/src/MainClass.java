@@ -5,9 +5,9 @@ public class MainClass
   //      System.out.println(text);
   //      return 0;
   //  }
-    private int class_string = "Hello, World";
+    private String class_string = "Hello, World";
 
-    public int getClassString()
+    public String getClassString()
     {
         return class_string;
     }
