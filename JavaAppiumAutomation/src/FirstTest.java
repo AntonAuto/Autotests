@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.URL;
+import java.util.List;
 
 public class FirstTest {
 
@@ -57,6 +58,21 @@ public class FirstTest {
                     By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='Object-oriented programming language']"),
                     "Cannot find 'Object-oriented programming language' topic searching by 'Java'",
                     15
+            );
+        }
+
+        @Test
+        public void checkTextInSearchString(){
+            waitForElementAndClick(
+                    By.xpath("//*[contains(@text,'Search Wikipedia')]"),
+                    "Cannot find Search Wikipedia Input",
+                    5
+            );
+
+            waitForElementPresent(
+                    By.xpath("//*[@resource-id='org.wikipedia:id/search_src_text'][@text='Search…']"),
+                    "Cannot find 'Search…' text in search line",
+                    5
             );
         }
 
@@ -172,4 +188,5 @@ public class FirstTest {
         element.clear();
         return element;
     }
+
     }
