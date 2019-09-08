@@ -38,6 +38,7 @@ public class FirstTest {
     @After
     public void tearDown()
     {
+        driver.rotate(ScreenOrientation.PORTRAIT);
         driver.quit();
     }
 
@@ -126,7 +127,7 @@ public class FirstTest {
     }
 //     For exercise 4 Lesson#2
 //    @Test
-//    public void TestCount() {
+//    public void test123(){
 //        waitForElementAndClick(
 //                By.xpath("//*[contains(@text,'Search Wikipedia')]"),
 //                "Cannot find Search Wikipedia Input",
@@ -138,10 +139,10 @@ public class FirstTest {
 //                "Cannot find search input",
 //                5
 //        );
-//        valueElements(
-//                    By.id("//*[@resource-id='org.wikipedia:id/page_list_item_container']"),
-//                    "Something went wrong"
-//        );
+//        String search_result_locator = "//*[@resource-id='org.wikipedia:id/search_results_list']/*[@resource-id='org.wikipedia:id/page_list_item_container']";
+//        int amount_of_articles = getAmountOfElements(By.xpath(search_result_locator));
+//        System.out.println(amount_of_articles);
+//
 //    }
         @Test
         public void testCancelButton()
@@ -278,6 +279,11 @@ public class FirstTest {
                 By.xpath("//android.widget.ImageView[@content-desc='More options']"),
                 "Cannot find button to open article options",
                 10
+        );
+        waitForElementPresent(
+                By.xpath("//*[@resource-id='org.wikipedia:id/title'][@text='Add to reading list']"),
+                "Cannot find an option in the more list",
+                5
         );
         waitForElementAndClick(
                 // NEED TO ASK A QUESTION ABOUT XPATH!!!! THESE METHODS ARE NOT WORKING!!! BUTTON CLICK IS TAPPING ON WRONG PLACE! (SHARE LIST OPTION IS USED)
@@ -732,16 +738,5 @@ public class FirstTest {
         WebElement element = waitForElementPresent(by,error_message,timeoutInSeconds);
         return element.getAttribute(attribute);
     }
-
-// For exercise 4 Lesson#2
-//    private int valueElements (By by){
-//        int a = driver.findElements(by).size();
-//        return a;
-//    }
-
-//    private WebElement listCreate(By by, String error_message, long timeoutInSeconds){
-//        List<WebElement> titles = driver.findElements(By.id("//*[@resource-id='org.wikipedia:id/page_list_item_container']"));
-//
-//    }
 
     }
